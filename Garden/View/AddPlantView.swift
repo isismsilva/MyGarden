@@ -10,20 +10,24 @@ import SwiftUI
 struct AddPlantView: View {
   @State private var name: String = ""
   @State private var species: String = ""
+  @State var image: Image? = nil
+  @State var showCaptureImageView: Bool = false
+  @State var imageData: Data?
   
   var body: some View {
     VStack {
-      
       ScrollView {
-        
-        textField("Name", input: $name)
-        textField("Species", input: $species)
+        imageView
+        GradientTextField(placeHolder: "Name", input: $name)
+        GradientTextField(placeHolder: "Species", input: $species)
       }
+      .padding(.top, 24)
       
       Spacer()
       
       Button {
-        // Save data
+        PersistenceController.shared.saveData(name, image: imageData ?? Data())
+        
       } label: {
         Text("Save")
           .frame(height: 48)
@@ -32,24 +36,40 @@ struct AddPlantView: View {
           .multilineTextAlignment(.center)
           .padding(.horizontal, 48)
           .foregroundColor(.white)
-          .background(Capsule().fill(Color("6")))
-          .padding(.horizontal, 48)
+          .background(Capsule().fill(Color("primaryPink")))
           .padding(.vertical, 24)
       }
       
     }.padding(.top, 32)
   }
   
-  func textField(_ placeHolder: String, input: Binding<String>) -> some View {
-    VStack(alignment: .leading, spacing: 4) {
-      Text(placeHolder)
-        .font(.headline)
-        .foregroundColor(.primary)
-      
-      TextField(placeHolder, text: input)
-        .gradientView(textColor: .primary, startColor: .orange, endColor: .purple, roundedCornes: 6)
+  var imageView: some View {
+    ZStack(alignment: .leading) {
+      VStack(alignment: .leading) {
+        Button(action: {
+          showCaptureImageView.toggle()
+        }) {
+          if let image = image {
+            image
+              .resizable()
+              .aspectRatio(1, contentMode: .fit)
+              .frame(width: 200, height: 200)
+              .clipShape(RoundedRectangle(cornerRadius: 8))
+              .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.white, lineWidth: 4))
+              .shadow(radius: 10)
+          } else {
+            Image(systemName: "photo.circle.fill")
+              .resizable()
+              .frame(width: 200, height: 200)
+              .foregroundColor(Color("primaryPink"))
+          }
+        }
+        
+      }
+      .sheet(isPresented: $showCaptureImageView) {
+        CaptureImageView(isShown: $showCaptureImageView, image: $image, imageData: $imageData)
+      }
     }
-    .padding()
   }
 }
 

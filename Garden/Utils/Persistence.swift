@@ -40,4 +40,32 @@ struct PersistenceController {
     })
     container.viewContext.automaticallyMergesChangesFromParent = true
   }
+  
+  func saveData(_ plant: String, image: Data) {
+    container.viewContext.performAndWait {
+      let planEntity = Plant(context: container.viewContext)
+      planEntity.name = plant
+      planEntity.image = image
+      
+      do {
+        try container.viewContext.save()
+      } catch {
+        print("Unable to save")
+      }
+    }
+  }
+  
+  func fetchImage() -> Plant {
+    var fetchingImage: [Plant]? = []
+  let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Plant")
+  do {
+    container.viewContext.performAndWait {
+      fetchingImage = try? container.viewContext.fetch(fetchRequest) as? [Plant]
+    }
+   
+  } catch {
+  print("Error while fetching the image")
+  }
+    return fetchingImage?.first ?? Plant(context: container.viewContext)
+  }
 }

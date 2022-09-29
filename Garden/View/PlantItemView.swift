@@ -10,6 +10,7 @@ import SwiftUI
 struct PlantItemView: View {
   let color: Color
   let name: String
+  let image: Data
   
   var body: some View {
     ZStack {
@@ -18,10 +19,12 @@ struct PlantItemView: View {
         .aspectRatio(1, contentMode: .fit)
       
       VStack {
-        Image("plant")
-          .resizable()
-          .aspectRatio(1, contentMode: .fit)
-          .padding(.horizontal, 24)
+        
+        Image(uiImage: (UIImage(data: image) ?? UIImage(named: "plant"))!)
+            .resizable()
+            .aspectRatio(1, contentMode: .fit)
+            .padding(.horizontal, 24)
+          
         Text(name)
           .font(.headline)
           .foregroundColor(.primary)
@@ -33,6 +36,6 @@ struct PlantItemView: View {
 
 struct PlantItemView_Previews: PreviewProvider {
     static var previews: some View {
-      PlantItemView(color: .primary, name: "Ísis")
+      PlantItemView(color: .primary, name: "Ísis", image: Data())
     }
 }

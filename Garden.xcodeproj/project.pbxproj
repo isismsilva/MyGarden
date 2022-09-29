@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		383D979E28E630A700119835 /* GradientTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383D979D28E630A700119835 /* GradientTextField.swift */; };
+		387B70E028E60A5C000AC753 /* ImageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B70DF28E60A5C000AC753 /* ImageCoordinator.swift */; };
 		389E271128E3E92700D9EF79 /* GardenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E271028E3E92700D9EF79 /* GardenApp.swift */; };
 		389E271328E3E92700D9EF79 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E271228E3E92700D9EF79 /* Persistence.swift */; };
 		389E271828E3E92700D9EF79 /* MainGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E271728E3E92700D9EF79 /* MainGalleryView.swift */; };
@@ -57,6 +59,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		383D979D28E630A700119835 /* GradientTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTextField.swift; sourceTree = "<group>"; };
+		387B70DF28E60A5C000AC753 /* ImageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCoordinator.swift; sourceTree = "<group>"; };
 		389E270D28E3E92700D9EF79 /* Garden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Garden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		389E271028E3E92700D9EF79 /* GardenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenApp.swift; sourceTree = "<group>"; };
 		389E271228E3E92700D9EF79 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 		389E270F28E3E92700D9EF79 /* Garden */ = {
 			isa = PBXGroup;
 			children = (
+				38F6F1C528E609F4007F2D31 /* ImageManager */,
 				38F6F19E28E544B7007F2D31 /* Style */,
 				38F6F19D28E5448F007F2D31 /* Utils */,
 				38F6F19128E4E83E007F2D31 /* View */,
@@ -191,8 +196,17 @@
 			children = (
 				38F6F19428E4F17A007F2D31 /* ColorStyle.swift */,
 				38F6F19F28E5D083007F2D31 /* GradientViewModifier.swift */,
+				383D979D28E630A700119835 /* GradientTextField.swift */,
 			);
 			path = Style;
+			sourceTree = "<group>";
+		};
+		38F6F1C528E609F4007F2D31 /* ImageManager */ = {
+			isa = PBXGroup;
+			children = (
+				387B70DF28E60A5C000AC753 /* ImageCoordinator.swift */,
+			);
+			path = ImageManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,11 +311,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				387B70E028E60A5C000AC753 /* ImageCoordinator.swift in Sources */,
 				389E271128E3E92700D9EF79 /* GardenApp.swift in Sources */,
 				38F6F19A28E5404F007F2D31 /* PlantDetailsView.swift in Sources */,
 				389E271828E3E92700D9EF79 /* MainGalleryView.swift in Sources */,
 				38F6F19C28E542A1007F2D31 /* AddPlantView.swift in Sources */,
 				38F6F19728E53EBE007F2D31 /* Garden.xcdatamodeld in Sources */,
+				383D979E28E630A700119835 /* GradientTextField.swift in Sources */,
 				38F6F1A228E5D912007F2D31 /* Utils.swift in Sources */,
 				38F6F19328E4E866007F2D31 /* PlantItemView.swift in Sources */,
 				38F6F19528E4F17A007F2D31 /* ColorStyle.swift in Sources */,
@@ -458,6 +474,8 @@
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We want to use you camera";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We want to access your library";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -498,6 +516,8 @@
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We want to use you camera";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We want to access your library";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
