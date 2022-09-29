@@ -11,24 +11,27 @@ import CoreData
 struct ContentView: View {
   
   @ObservedObject private var connectivityManager = WatchConnectivityManager.shared
-  
   @Environment(\.managedObjectContext) private var viewContext
   @FetchRequest(
-    sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+    sortDescriptors: [NSSortDescriptor(keyPath: \Plant.name, ascending: true)],
     animation: .default)
-  private var items: FetchedResults<Item>
+  private var items: FetchedResults<Plant>
+  
+  let colums = Array.init(repeating: GridItem(.flexible(), spacing: 2), count: 3)
   
   var body: some View {
     NavigationView {
-      List {
-        ForEach(items) { item in
-          NavigationLink {
-            Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-          } label: {
-            Text(item.timestamp!, formatter: itemFormatter)
+      ScrollView {
+        LazyVGrid(columns: colums, spacing: 2) {
+          ForEach(Array(items.enumerated()), id: \.offset) { (index, item) in
+            NavigationLink {
+              Text("Item at index: \(index)")
+            } label: {
+              PlantItemView(color: Color(.white).indexedColor(index, steps: items.count), name: item.name ?? "")
+            }
           }
         }
-        .onDelete(perform: deleteItems)
+        
       }
       .toolbar {
         ToolbarItem(placement: .navigationBarTrailing) {
@@ -44,13 +47,13 @@ struct ContentView: View {
     }.alert(item: $connectivityManager.notificationMessage) { message in
       Alert(title: Text(message.text),
             dismissButton: .default(Text("Dismiss")))
- }
+    }
   }
   
   private func addItem() {
     withAnimation {
-      let newItem = Item(context: viewContext)
-      newItem.timestamp = Date()
+      let newItem = Plant(context: viewContext)
+      newItem.name = "Bia"
       
       do {
         try viewContext.save()

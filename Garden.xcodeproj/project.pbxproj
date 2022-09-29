@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		389E271128E3E92700D9EF79 /* GardenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E271028E3E92700D9EF79 /* GardenApp.swift */; };
 		389E271328E3E92700D9EF79 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E271228E3E92700D9EF79 /* Persistence.swift */; };
-		389E271628E3E92700D9EF79 /* Garden.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 389E271428E3E92700D9EF79 /* Garden.xcdatamodeld */; };
 		389E271828E3E92700D9EF79 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E271728E3E92700D9EF79 /* ContentView.swift */; };
 		389E271A28E3E92900D9EF79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 389E271928E3E92900D9EF79 /* Assets.xcassets */; };
 		389E271E28E3E92900D9EF79 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 389E271D28E3E92900D9EF79 /* Preview Assets.xcassets */; };
@@ -20,7 +19,37 @@
 		389E273628E3EADA00D9EF79 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E271228E3E92700D9EF79 /* Persistence.swift */; };
 		389E273828E3EB0F00D9EF79 /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E273728E3EB0F00D9EF79 /* WatchConnectivityManager.swift */; };
 		389E273928E3EB0F00D9EF79 /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E273728E3EB0F00D9EF79 /* WatchConnectivityManager.swift */; };
+		389E273B28E3EE2D00D9EF79 /* GardenWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 389E272828E3EA0000D9EF79 /* GardenWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		38F6F19328E4E866007F2D31 /* PlantItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F6F18F28E4E839007F2D31 /* PlantItemView.swift */; };
+		38F6F19528E4F17A007F2D31 /* ColorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F6F19428E4F17A007F2D31 /* ColorStyle.swift */; };
+		38F6F19628E4F17A007F2D31 /* ColorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F6F19428E4F17A007F2D31 /* ColorStyle.swift */; };
+		38F6F19728E53EBE007F2D31 /* Garden.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 389E271428E3E92700D9EF79 /* Garden.xcdatamodeld */; };
+		38F6F19828E53EBE007F2D31 /* Garden.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 389E271428E3E92700D9EF79 /* Garden.xcdatamodeld */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		389E273C28E3EE2D00D9EF79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 389E270528E3E92700D9EF79 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 389E272728E3EA0000D9EF79;
+			remoteInfo = "GardenWatch Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		389E273E28E3EE2D00D9EF79 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				389E273B28E3EE2D00D9EF79 /* GardenWatch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		389E270D28E3E92700D9EF79 /* Garden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Garden.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,6 +66,8 @@
 		389E272E28E3EA0300D9EF79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		389E273128E3EA0300D9EF79 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		389E273728E3EB0F00D9EF79 /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
+		38F6F18F28E4E839007F2D31 /* PlantItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantItemView.swift; sourceTree = "<group>"; };
+		38F6F19428E4F17A007F2D31 /* ColorStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +94,7 @@
 				389E270F28E3E92700D9EF79 /* Garden */,
 				389E272928E3EA0000D9EF79 /* GardenWatch Watch App */,
 				389E270E28E3E92700D9EF79 /* Products */,
+				389E273A28E3EE2D00D9EF79 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,6 +110,7 @@
 		389E270F28E3E92700D9EF79 /* Garden */ = {
 			isa = PBXGroup;
 			children = (
+				38F6F19128E4E83E007F2D31 /* View */,
 				389E271028E3E92700D9EF79 /* GardenApp.swift */,
 				389E271228E3E92700D9EF79 /* Persistence.swift */,
 				389E271728E3E92700D9EF79 /* ContentView.swift */,
@@ -86,6 +119,7 @@
 				389E271428E3E92700D9EF79 /* Garden.xcdatamodeld */,
 				389E271C28E3E92900D9EF79 /* Preview Content */,
 				389E273728E3EB0F00D9EF79 /* WatchConnectivityManager.swift */,
+				38F6F19428E4F17A007F2D31 /* ColorStyle.swift */,
 			);
 			path = Garden;
 			sourceTree = "<group>";
@@ -117,6 +151,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		389E273A28E3EE2D00D9EF79 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		38F6F19128E4E83E007F2D31 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				38F6F18F28E4E839007F2D31 /* PlantItemView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -127,10 +176,12 @@
 				389E270928E3E92700D9EF79 /* Sources */,
 				389E270A28E3E92700D9EF79 /* Frameworks */,
 				389E270B28E3E92700D9EF79 /* Resources */,
+				389E273E28E3EE2D00D9EF79 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				389E273D28E3EE2D00D9EF79 /* PBXTargetDependency */,
 			);
 			name = Garden;
 			productName = Garden;
@@ -218,8 +269,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				389E271128E3E92700D9EF79 /* GardenApp.swift in Sources */,
-				389E271628E3E92700D9EF79 /* Garden.xcdatamodeld in Sources */,
 				389E271828E3E92700D9EF79 /* ContentView.swift in Sources */,
+				38F6F19728E53EBE007F2D31 /* Garden.xcdatamodeld in Sources */,
+				38F6F19328E4E866007F2D31 /* PlantItemView.swift in Sources */,
+				38F6F19528E4F17A007F2D31 /* ColorStyle.swift in Sources */,
 				389E271328E3E92700D9EF79 /* Persistence.swift in Sources */,
 				389E273828E3EB0F00D9EF79 /* WatchConnectivityManager.swift in Sources */,
 			);
@@ -232,11 +285,21 @@
 				389E273628E3EADA00D9EF79 /* Persistence.swift in Sources */,
 				389E272D28E3EA0000D9EF79 /* ContentView.swift in Sources */,
 				389E273928E3EB0F00D9EF79 /* WatchConnectivityManager.swift in Sources */,
+				38F6F19628E4F17A007F2D31 /* ColorStyle.swift in Sources */,
+				38F6F19828E53EBE007F2D31 /* Garden.xcdatamodeld in Sources */,
 				389E272B28E3EA0000D9EF79 /* GardenWatchApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		389E273D28E3EE2D00D9EF79 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 389E272728E3EA0000D9EF79 /* GardenWatch Watch App */;
+			targetProxy = 389E273C28E3EE2D00D9EF79 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		389E271F28E3E92900D9EF79 /* Debug */ = {
@@ -358,7 +421,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Garden/Preview Content\"";
 				DEVELOPMENT_TEAM = 5HMJW6N276;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -379,7 +442,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = isis.Garden;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -396,7 +461,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Garden/Preview Content\"";
 				DEVELOPMENT_TEAM = 5HMJW6N276;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -417,7 +482,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = isis.Garden;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -437,13 +504,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = GardenWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = isis.Garden;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = isis.Garden;
+				PRODUCT_BUNDLE_IDENTIFIER = isis.Garden.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -467,13 +534,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = GardenWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = isis.Garden;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = isis.Garden;
+				PRODUCT_BUNDLE_IDENTIFIER = isis.Garden.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;

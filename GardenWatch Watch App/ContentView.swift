@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
   @ObservedObject private var connectivityManager = WatchConnectivityManager.shared
+  @Environment(\.managedObjectContext) private var viewContext
   
   var body: some View {
     VStack {
@@ -18,6 +19,7 @@ struct ContentView: View {
       Text("Hello, world!")
       
       Button {
+        addItem()
         connectivityManager.send("Hello iPhone")
       } label: {
         Text("Tap me")
@@ -25,6 +27,20 @@ struct ContentView: View {
 
     }
     .padding()
+  }
+  
+  private func addItem() {
+    withAnimation {
+      let newItem = Plant(context: viewContext)
+      newItem.name = "Ísis"
+      
+      do {
+        try viewContext.save()
+      } catch {
+        let nsError = error as NSError
+        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+      }
+    }
   }
 }
 
