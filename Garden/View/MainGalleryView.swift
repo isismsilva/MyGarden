@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MainGalleryView.swift
 //  Garden
 //
 //  Created by Isis Silva on 27/09/22.
@@ -8,8 +8,9 @@
 import SwiftUI
 import CoreData
 
-struct ContentView: View {
+struct MainGalleryView: View {
   
+  @State private var presentAddView = false
   @ObservedObject private var connectivityManager = WatchConnectivityManager.shared
   @Environment(\.managedObjectContext) private var viewContext
   @FetchRequest(
@@ -24,43 +25,32 @@ struct ContentView: View {
       ScrollView {
         LazyVGrid(columns: colums, spacing: 2) {
           ForEach(Array(items.enumerated()), id: \.offset) { (index, item) in
+            let color = Color(.white).indexedColor(index, steps: items.count)
             NavigationLink {
-              Text("Item at index: \(index)")
+              PlantDetailsView(plant: item, color: color)
             } label: {
-              PlantItemView(color: Color(.white).indexedColor(index, steps: items.count), name: item.name ?? "")
+              PlantItemView(color: color, name: item.name ?? "")
             }
           }
         }
-        
       }
+      .navigationTitle("Gallery")
+      .sheet(isPresented: $presentAddView) { AddPlantView() }
       .toolbar {
         ToolbarItem(placement: .navigationBarTrailing) {
-          EditButton()
+          EditButton().foregroundColor(.primary)
         }
         ToolbarItem {
-          Button(action: addItem) {
-            Label("Add Item", systemImage: "plus")
+          Button(action: { presentAddView.toggle() }) {
+            Image(systemName: "plus")
+              .foregroundColor(.primary)
           }
         }
       }
-      Text("Select an item")
-    }.alert(item: $connectivityManager.notificationMessage) { message in
+    }
+    .alert(item: $connectivityManager.notificationMessage) { message in
       Alert(title: Text(message.text),
             dismissButton: .default(Text("Dismiss")))
-    }
-  }
-  
-  private func addItem() {
-    withAnimation {
-      let newItem = Plant(context: viewContext)
-      newItem.name = "Bia"
-      
-      do {
-        try viewContext.save()
-      } catch {
-        let nsError = error as NSError
-        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-      }
     }
   }
   
@@ -76,17 +66,16 @@ struct ContentView: View {
       }
     }
   }
+  
 }
-
-private let itemFormatter: DateFormatter = {
-  let formatter = DateFormatter()
-  formatter.dateStyle = .short
-  formatter.timeStyle = .medium
-  return formatter
-}()
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    MainGalleryView()
+      .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    
+    MainGalleryView()
+      .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+      .preferredColorScheme(.dark)
   }
 }
