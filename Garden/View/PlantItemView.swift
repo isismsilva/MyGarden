@@ -13,29 +13,31 @@ struct PlantItemView: View {
   let image: Data
   
   var body: some View {
-    ZStack {
-      RoundedRectangle(cornerRadius: 0)
-        .foregroundColor(color)
-        .aspectRatio(1, contentMode: .fit)
+    
+    ZStack(alignment: .bottom) {
       
-      VStack {
-        
-        Image(uiImage: (UIImage(data: image) ?? UIImage(named: "plant"))!)
-            .resizable()
-            .aspectRatio(1, contentMode: .fit)
-            .padding(.horizontal, 24)
-          
-        Text(name)
-          .font(.headline)
-          .foregroundColor(.primary)
-      }
+      Image(uiImage: (UIImage(data: image) ?? UIImage(named: "plant"))!)
+        .resizable()
+        .aspectRatio(1, contentMode: .fit).padding(8)
+      
+      Text(name)
+        .font(.system(size: 20))
+        .fontWeight(.semibold)
+        .foregroundColor(color)
+        .padding(.bottom, 8).shadow(color: .black, radius: 8)
+      
     }
-    .shadow(color: .gray.opacity(0.3), radius: 5)
+    .background(Color.white).cornerRadius(8)
+    .overlay {
+      RoundedRectangle(cornerRadius: 8)
+        .stroke(color, lineWidth: 2)
+        .aspectRatio(1, contentMode: .fit)
+    }
   }
 }
 
 struct PlantItemView_Previews: PreviewProvider {
-    static var previews: some View {
-      PlantItemView(color: .primary, name: "Ísis", image: Data())
-    }
+  static var previews: some View {
+    PlantItemView(color: .pink, name: "Ísis", image: Data()).preferredColorScheme(.dark)
+  }
 }

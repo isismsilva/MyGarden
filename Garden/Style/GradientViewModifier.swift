@@ -22,8 +22,6 @@ struct GradientStyle: ViewModifier {
       .foregroundColor(textColor)
       .overlay(RoundedRectangle(cornerRadius: roundedCornes)
         .stroke(LinearGradient(gradient: Gradient(colors: [startColor, endColor]), startPoint: .topLeading, endPoint: .bottomTrailing), lineWidth: 2.5))
-      .font(.custom("Open Sans", size: 18))
-    
       .shadow(radius: 10)
   }
 }

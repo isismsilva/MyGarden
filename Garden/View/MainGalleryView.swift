@@ -29,7 +29,7 @@ struct MainGalleryView: View {
             NavigationLink {
               PlantDetailsView(plant: item, color: color)
             } label: {
-              PlantItemView(color: color, name: item.name ?? "", image: item.image ?? Data())
+              PlantItemView(color: color, name: item.name ?? "", image: item.image ?? Data()).padding(2)
             }
           }
         }

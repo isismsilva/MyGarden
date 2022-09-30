@@ -54,18 +54,4 @@ struct PersistenceController {
       }
     }
   }
-  
-  func fetchImage() -> Plant {
-    var fetchingImage: [Plant]? = []
-  let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Plant")
-  do {
-    container.viewContext.performAndWait {
-      fetchingImage = try? container.viewContext.fetch(fetchRequest) as? [Plant]
-    }
-   
-  } catch {
-  print("Error while fetching the image")
-  }
-    return fetchingImage?.first ?? Plant(context: container.viewContext)
-  }
 }
