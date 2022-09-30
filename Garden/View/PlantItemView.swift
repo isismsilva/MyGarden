@@ -24,10 +24,12 @@ struct PlantItemView: View {
         .font(.system(size: 20))
         .fontWeight(.semibold)
         .foregroundColor(color)
-        .padding(.bottom, 8).shadow(color: .black, radius: 8)
+        .padding(.bottom, 8)
+        .shadow(color: .black, radius: 8)
       
     }
-    .background(Color.white).cornerRadius(8)
+    .background(Color.white.opacity(0.8))
+    .cornerRadius(8)
     .overlay {
       RoundedRectangle(cornerRadius: 8)
         .stroke(color, lineWidth: 2)

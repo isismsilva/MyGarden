@@ -41,12 +41,13 @@ struct PersistenceController {
     container.viewContext.automaticallyMergesChangesFromParent = true
   }
   
-  func saveData(_ plant: String, image: Data) {
+  func saveData(_ plant: String, image: Data, waterRate: Int, lightRate: Int) {
     container.viewContext.performAndWait {
       let planEntity = Plant(context: container.viewContext)
       planEntity.name = plant
       planEntity.image = image
-      
+      planEntity.waterAmount = Int64(waterRate)
+      planEntity.lightAmount = Int64(lightRate)
       do {
         try container.viewContext.save()
       } catch {

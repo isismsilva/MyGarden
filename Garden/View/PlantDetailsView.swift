@@ -12,9 +12,9 @@ struct PlantDetailsView: View {
   let color: Color
   
     var body: some View {
-      
+    
       VStack {
-        Image("plant")
+        Image(uiImage: (UIImage(data: plant?.image ?? Data()) ?? UIImage(named: "plant"))!)
           .resizable()
           .aspectRatio(1, contentMode: .fit)
         
@@ -26,9 +26,8 @@ struct PlantDetailsView: View {
   var detailList: some View {
     VStack {
       Text(plant?.name ?? "").font(.headline)
-      Text(plant?.species ?? "").font(.subheadline)
-      Text("")
-      Text("")
+      ImageRateView(rate: .constant(Int(plant?.lightAmount ?? 0)), imageName: "sun.max", color: .orange, isEditMode: false)
+      ImageRateView(rate: .constant(Int(plant?.waterAmount ?? 0)), imageName: "drop", color: Color("primaryBlue"), isEditMode: false)
     }
   }
   

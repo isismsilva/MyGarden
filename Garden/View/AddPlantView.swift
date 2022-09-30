@@ -13,6 +13,9 @@ struct AddPlantView: View {
   @State var image: Image? = nil
   @State var showCaptureImageView: Bool = false
   @State var imageData: Data?
+  @State var lightAmount: Int?
+  @State var waterAmount: Int?
+  
   
   var body: some View {
     VStack {
@@ -20,13 +23,15 @@ struct AddPlantView: View {
         imageView
         GradientTextField(placeHolder: "Name", input: $name)
         GradientTextField(placeHolder: "Species", input: $species)
+        ImageRateView(rate: $lightAmount, imageName: "sun.max", color: .orange, isEditMode: true).padding(16)
+        ImageRateView(rate: $waterAmount, imageName: "drop", color: Color("primaryBlue"), isEditMode: true).padding(16)
       }
       .padding(.top, 24)
       
       Spacer()
       
       Button {
-        PersistenceController.shared.saveData(name, image: imageData ?? Data())
+        PersistenceController.shared.saveData(name, image: imageData ?? Data(), waterRate: waterAmount ?? 0, lightRate: lightAmount ?? 0)
         
       } label: {
         Text("Save")
