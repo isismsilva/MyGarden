@@ -63,7 +63,7 @@ struct PersistenceController {
     container.viewContext.performAndWait {
       
       let speciesEntity = Species(context: container.viewContext)
-      speciesEntity.name = species.name
+      speciesEntity.speciesName = species.speciesName
       speciesEntity.color = species.color
       
       let planEntity = Plant(context: container.viewContext)
@@ -71,7 +71,7 @@ struct PersistenceController {
       planEntity.image = image
       planEntity.waterAmount = Int64(waterRate)
       planEntity.lightAmount = Int64(lightRate)
-      planEntity.species = speciesEntity
+      planEntity.specie = speciesEntity
       
       do {
         try container.viewContext.save()
@@ -85,7 +85,7 @@ struct PersistenceController {
     container.viewContext.performAndWait {
       
       let speciesEntity = Species(context: container.viewContext)
-      speciesEntity.name = name
+      speciesEntity.speciesName = name
       speciesEntity.color = color
       
       do {

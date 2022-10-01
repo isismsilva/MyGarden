@@ -16,7 +16,7 @@ struct GridItemListView: View {
     ScrollView(.horizontal, showsIndicators: false) {
       LazyHGrid(rows: rows, spacing: 8) {
         ForEach(sequence, id: \.self) { specie in
-          CapsuleButton(text: specie.name ?? "", color: Color.init(hex: specie.color ?? "") ?? .pink) {
+          CapsuleButton(text: specie.speciesName ?? "", color: Color.init(hex: specie.color ?? "") ?? .pink) {
             action(specie)
           }
         }
