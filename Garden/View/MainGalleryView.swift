@@ -19,14 +19,15 @@ struct MainGalleryView: View {
     NavigationView {
       ScrollView(.vertical, showsIndicators: false) {
         LazyVGrid(columns: colums, spacing: 2) {
-          ForEach(Array(plants.enumerated()), id: \.offset) { (index, item) in
-            let color = Color(.white)
+          ForEach(Array(plants.enumerated()), id: \.offset) { (index, plant) in
+            let color = Color.init(hex: plant.plantSpecies?.color ?? " ")
             NavigationLink {
-              if !item.specieArray.isEmpty {
-                PlantDetailsView(plant: item, color: .pink, specieName: item.specieArray.first?.name ?? "")
-              }
+             
+                PlantDetailsView(plant: plant)
+              
             } label: {
-              PlantItemView(color: color, name: item.name ?? "", image: item.image ?? Data()).padding(2)
+              PlantItemView(color: color ?? .pink, image: plant.image ?? Data())
+                .padding(2)
             }
           }
         }

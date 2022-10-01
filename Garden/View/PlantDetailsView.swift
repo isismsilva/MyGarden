@@ -9,8 +9,6 @@ import SwiftUI
 
 struct PlantDetailsView: View {
   let plant: Plant?
-  let color: Color
-  let specieName: String?
   
     var body: some View {
       VStack {
@@ -18,21 +16,24 @@ struct PlantDetailsView: View {
           Image(uiImage: (UIImage(data: plant?.image ?? Data()) ?? UIImage(named: "plant"))!)
             .resizable()
             .aspectRatio(1, contentMode: .fit)
+            .clipShape(Circle())
           
           detailList
         }
-      }.foregroundColor(color)
+      }
     }
   
   var detailList: some View {
-    VStack {
+    VStack(alignment: .leading) {
       
       Text(plant?.name ?? "").font(.headline)
       ImageRateView(rate: .constant(Int(plant?.lightAmount ?? 0)), title: "Light amount", imageName: "sun.max", color: .orange, isEditMode: false)
       ImageRateView(rate: .constant(Int(plant?.waterAmount ?? 0)), title: "Water amount", imageName: "drop", color: Color("primaryBlue"), isEditMode: false)
       
-      Text(specieName ?? "PIPI" )
-        .font(.largeTitle)
+      if let species = plant?.plantSpecies {
+        Text(species.name ?? "PIPI" )
+          .font(.largeTitle)
+      }
     }
   }
   

@@ -24,10 +24,9 @@ extension Plant {
     @NSManaged public var species: NSSet?
 
   
-  public var specieArray: [Species] {
+  public var plantSpecies: Species? {
     let set = species as? Set<Species> ?? []
-    
-    return set.sorted { $0.name ?? "" < $1.name ?? "" }
+    return set.first
   }
 }
 

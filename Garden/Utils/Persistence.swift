@@ -53,9 +53,8 @@ struct PersistenceController {
     }
 
     guard species.isEmpty else { return }
-    let speciesString: [String] = ["cactus", "orchids", "succulents", "peperomia", "aloe", "morus", "zamioculcas"]
-    for specie in speciesString {
-      PersistenceController.shared.saveSpeciesData(specie, color: specie)
+    for (specie, color) in speciesColors {
+      PersistenceController.shared.saveSpeciesData(specie, color: color)
     }
   }
   

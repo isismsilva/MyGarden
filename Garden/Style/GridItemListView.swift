@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GridItemListView: View {
   let sequence: FetchedResults<Species>
-  let rows = [GridItem(.adaptive(minimum: 60), spacing: 60), GridItem(.adaptive(minimum: 60))]
+  let rows = Array(repeating: GridItem(.adaptive(minimum: 60), spacing: 60), count: 3)
   let action: ((Species) -> Void)
   
   var body: some View {

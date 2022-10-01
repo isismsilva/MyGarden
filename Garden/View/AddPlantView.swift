@@ -18,6 +18,7 @@ struct AddPlantView: View {
   @State var lightAmount: Int?
   @State var waterAmount: Int?
   @State var specieState: Species?
+  @State var date: Date = Date()
   
   var body: some View {
     VStack {
@@ -27,7 +28,22 @@ struct AddPlantView: View {
         VStack(alignment: .leading) {
           
           imageView.padding(16)
-          GradientTextField(placeHolder: "Name", input: $name)
+          
+          CustomTextField(placeHolder: "Name", input: $name)
+            .frame(height: 32)
+            .padding(16)
+          
+          DatePicker(selection: $date, displayedComponents: [.date]) {
+             Text("Purchase date")
+              .font(.system(size: 20, weight: .bold, design: .rounded))
+          }
+            .padding(16)
+            .foregroundColor(.white)
+            .background(Color("primaryBlue"), in: RoundedRectangle(cornerRadius: 20))
+            .accentColor(Color("primaryPink"))
+            .datePickerStyle(.compact)
+            .frame(height: 32)
+            .padding(16)
           
           ImageRateView(rate: $lightAmount, title: "Light amount", imageName: "sun.max", color: .orange, isEditMode: true).padding(16)
           
@@ -42,6 +58,7 @@ struct AddPlantView: View {
         
         saveButton
       }
+      .scrollDismissesKeyboard(.interactively)
       .padding(.top, 32)
       
     
