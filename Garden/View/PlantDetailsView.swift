@@ -26,8 +26,8 @@ struct PlantDetailsView: View {
   var detailList: some View {
     VStack {
       Text(plant?.name ?? "").font(.headline)
-      ImageRateView(rate: .constant(Int(plant?.lightAmount ?? 0)), imageName: "sun.max", color: .orange, isEditMode: false)
-      ImageRateView(rate: .constant(Int(plant?.waterAmount ?? 0)), imageName: "drop", color: Color("primaryBlue"), isEditMode: false)
+      ImageRateView(rate: .constant(Int(plant?.lightAmount ?? 0)), title: "Light amount", imageName: "sun.max", color: .orange, isEditMode: false)
+      ImageRateView(rate: .constant(Int(plant?.waterAmount ?? 0)), title: "Water amount", imageName: "drop", color: Color("primaryBlue"), isEditMode: false)
     }
   }
   

@@ -8,68 +8,100 @@
 import SwiftUI
 
 struct AddPlantView: View {
+  @Environment(\.presentationMode) var presentationMode
+  @FetchRequest(sortDescriptors: []) var species: FetchedResults<Species>
+  
   @State private var name: String = ""
-  @State private var species: String = ""
   @State var image: Image? = nil
   @State var showCaptureImageView: Bool = false
   @State var imageData: Data?
   @State var lightAmount: Int?
   @State var waterAmount: Int?
-  
+  @State var specieState: Species?
   
   var body: some View {
     VStack {
-      ScrollView {
-        imageView
-        GradientTextField(placeHolder: "Name", input: $name)
-        GradientTextField(placeHolder: "Species", input: $species)
-        ImageRateView(rate: $lightAmount, imageName: "sun.max", color: .orange, isEditMode: true).padding(16)
-        ImageRateView(rate: $waterAmount, imageName: "drop", color: Color("primaryBlue"), isEditMode: true).padding(16)
-      }
-      .padding(.top, 24)
+      headerView.frame(height: 24)
       
-      Spacer()
-      
-      Button {
-        PersistenceController.shared.saveData(name, image: imageData ?? Data(), waterRate: waterAmount ?? 0, lightRate: lightAmount ?? 0)
+      ScrollView(.vertical, showsIndicators: false) {
+        VStack(alignment: .leading) {
+          
+          imageView.padding(16)
+          GradientTextField(placeHolder: "Name", input: $name)
+          
+          ImageRateView(rate: $lightAmount, title: "Light amount", imageName: "sun.max", color: .orange, isEditMode: true).padding(16)
+          
+          ImageRateView(rate: $waterAmount, title: "Water amount", imageName: "drop", color: Color("primaryBlue"), isEditMode: true)
+            .padding(16)
+          
+          GridItemListView(sequence: species) { specie in
+            specieState = specie
+          }
+          Spacer(minLength: 54)
+        }
         
-      } label: {
-        Text("Save")
-          .frame(height: 48)
-          .font(.title)
-          .fontWeight(.bold)
-          .multilineTextAlignment(.center)
-          .padding(.horizontal, 48)
-          .foregroundColor(.white)
-          .background(Capsule().fill(Color("primaryPink")))
-          .padding(.vertical, 24)
+        saveButton
       }
+      .padding(.top, 32)
       
-    }.padding(.top, 32)
+    
+    }
+  }
+  
+  var saveButton: some View {
+    Button {
+      PersistenceController.shared.savePlantData(name, imageData ?? Data(), waterAmount ?? 0, lightAmount ?? 0, specieState ?? Species(context: PersistenceController.shared.container.viewContext))
+      presentationMode.wrappedValue.dismiss()
+      
+    } label: {
+      Text("Save")
+        .frame(height: 48)
+        .font(.title)
+        .fontWeight(.bold)
+        .multilineTextAlignment(.center)
+        .padding(.horizontal, 48)
+        .foregroundColor(.white)
+        .background(Capsule().fill(Color("primaryPink")))
+        .padding(.vertical, 24)
+    }
+  }
+  
+  var headerView: some View {
+    HStack {
+      Spacer()
+      Button {
+        presentationMode.wrappedValue.dismiss()
+      } label: {
+        Spacer()
+        Image(systemName: "xmark")
+          .resizable()
+          .aspectRatio(contentMode: .fit)
+          .foregroundColor(.primary)
+          .padding(.horizontal, 24)
+      }
+    }
   }
   
   var imageView: some View {
     ZStack(alignment: .leading) {
       VStack(alignment: .leading) {
-        Button(action: {
-          showCaptureImageView.toggle()
-        }) {
+        Button(action: { showCaptureImageView.toggle() }) {
           if let image = image {
             image
               .resizable()
               .aspectRatio(1, contentMode: .fit)
-              .frame(width: 200, height: 200)
+              .frame(width: 150, height: 150)
               .clipShape(RoundedRectangle(cornerRadius: 8))
               .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.white, lineWidth: 4))
               .shadow(radius: 10)
           } else {
-            Image(systemName: "photo.circle.fill")
+            Image(systemName: "photo.fill")
               .resizable()
-              .frame(width: 200, height: 200)
+              .aspectRatio(contentMode: .fit)
               .foregroundColor(Color("primaryPink"))
+              .frame(height: 150)
           }
         }
-        
       }
       .sheet(isPresented: $showCaptureImageView) {
         CaptureImageView(isShown: $showCaptureImageView, image: $image, imageData: $imageData)
@@ -84,4 +116,3 @@ struct AddPlantView_Previews: PreviewProvider {
     AddPlantView().preferredColorScheme(.dark)
   }
 }
-

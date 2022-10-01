@@ -9,23 +9,18 @@ import SwiftUI
 import CoreData
 
 struct MainGalleryView: View {
-  
   @State private var presentAddView = false
   @ObservedObject private var connectivityManager = WatchConnectivityManager.shared
   @Environment(\.managedObjectContext) private var viewContext
-  @FetchRequest(
-    sortDescriptors: [NSSortDescriptor(keyPath: \Plant.name, ascending: true)],
-    animation: .default)
-  private var items: FetchedResults<Plant>
-  
+  @FetchRequest(sortDescriptors: []) private var plants: FetchedResults<Plant>
   let colums = Array.init(repeating: GridItem(.flexible(), spacing: 2), count: 3)
   
   var body: some View {
     NavigationView {
-      ScrollView {
+      ScrollView(.vertical, showsIndicators: false) {
         LazyVGrid(columns: colums, spacing: 2) {
-          ForEach(Array(items.enumerated()), id: \.offset) { (index, item) in
-            let color = Color(.white).indexedColor(index, steps: items.count)
+          ForEach(Array(plants.enumerated()), id: \.offset) { (index, item) in
+            let color = Color(.white)
             NavigationLink {
               PlantDetailsView(plant: item, color: color)
             } label: {
@@ -35,15 +30,13 @@ struct MainGalleryView: View {
         }
       }
       .navigationTitle("Gallery")
-      .sheet(isPresented: $presentAddView) { AddPlantView() }
+      .fullScreenCover(isPresented: $presentAddView) { AddPlantView() }
       .toolbar {
-        ToolbarItem(placement: .navigationBarTrailing) {
-          EditButton().foregroundColor(.primary)
-        }
         ToolbarItem {
           Button(action: { presentAddView.toggle() }) {
             Image(systemName: "plus")
               .foregroundColor(.primary)
+              .frame(width: 28, height: 28)
           }
         }
       }
@@ -52,20 +45,23 @@ struct MainGalleryView: View {
       Alert(title: Text(message.text),
             dismissButton: .default(Text("Dismiss")))
     }
-  }
-  
-  private func deleteItems(offsets: IndexSet) {
-    withAnimation {
-      offsets.map { items[$0] }.forEach(viewContext.delete)
-      
-      do {
-        try viewContext.save()
-      } catch {
-        let nsError = error as NSError
-        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-      }
+    .onAppear {
+      PersistenceController.shared.initSpeciesEntity()
     }
   }
+  
+//  private func deleteItems(offsets: IndexSet) {
+//    withAnimation {
+//      offsets.map { items[$0] }.forEach(viewContext.delete)
+//
+//      do {
+//        try viewContext.save()
+//      } catch {
+//        let nsError = error as NSError
+//        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+//      }
+//    }
+//  }
   
 }
 

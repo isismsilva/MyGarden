@@ -9,39 +9,44 @@ import SwiftUI
 
 struct ImageRateView: View {
  @Binding var rate: Int?
+  let title: String
   let imageName: String
   let color: Color
   let isEditMode: Bool
   
   var body: some View {
-    HStack {
-      ForEach(Array((1...5).enumerated()), id: \.offset) { (index, _) in
-        dropButton(index: index)
-          .onTapGesture {
-            rate = (isEditMode) ? index+1 : rate
-          }
-      }
+    VStack(alignment: .leading) {
+      Text(title)
+      HStack {
+        ForEach(Array((1...5).enumerated()), id: \.offset) { (index, _) in
+          itemButton(index: index)
+            .padding(.horizontal, 10)
+            .onTapGesture {
+              rate = (isEditMode) ? index+1 : rate
+            }
+        }
+      }.frame(height: 32)
     }
   }
   
   @ViewBuilder
-  func dropButton(index: Int) -> some View {
+  func itemButton(index: Int) -> some View {
     if rate ?? 0 > index {
       Image(systemName: "\(imageName).fill")
         .resizable()
-        .aspectRatio(1, contentMode: .fit)
         .foregroundColor(color)
+        .scaledToFit()
     } else {
       Image(systemName: imageName)
         .resizable()
-        .aspectRatio(1, contentMode: .fit)
         .foregroundColor(color)
+        .scaledToFit()
     }
   }
 }
 
 struct DropRateView_Previews: PreviewProvider {
   static var previews: some View {
-    ImageRateView(rate: .constant(3), imageName: "sun", color: .pink, isEditMode: true)
+    ImageRateView(rate: .constant(3), title: "LightAmount", imageName: "sun", color: .pink, isEditMode: true)
   }
 }

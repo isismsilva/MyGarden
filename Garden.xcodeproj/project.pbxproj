@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		383D979E28E630A700119835 /* GradientTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383D979D28E630A700119835 /* GradientTextField.swift */; };
 		383D97A028E68A9900119835 /* ImageRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383D979F28E68A9900119835 /* ImageRateView.swift */; };
+		383D97A428E7475600119835 /* CapsuleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383D97A328E7475600119835 /* CapsuleButton.swift */; };
+		383D97A628E777A400119835 /* GridItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383D97A528E777A400119835 /* GridItemListView.swift */; };
 		387B70E028E60A5C000AC753 /* ImageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B70DF28E60A5C000AC753 /* ImageCoordinator.swift */; };
 		389E271128E3E92700D9EF79 /* GardenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E271028E3E92700D9EF79 /* GardenApp.swift */; };
 		389E271328E3E92700D9EF79 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E271228E3E92700D9EF79 /* Persistence.swift */; };
@@ -62,6 +64,8 @@
 /* Begin PBXFileReference section */
 		383D979D28E630A700119835 /* GradientTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTextField.swift; sourceTree = "<group>"; };
 		383D979F28E68A9900119835 /* ImageRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRateView.swift; sourceTree = "<group>"; };
+		383D97A328E7475600119835 /* CapsuleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleButton.swift; sourceTree = "<group>"; };
+		383D97A528E777A400119835 /* GridItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridItemListView.swift; sourceTree = "<group>"; };
 		387B70DF28E60A5C000AC753 /* ImageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCoordinator.swift; sourceTree = "<group>"; };
 		389E270D28E3E92700D9EF79 /* Garden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Garden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		389E271028E3E92700D9EF79 /* GardenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenApp.swift; sourceTree = "<group>"; };
@@ -200,6 +204,8 @@
 				38F6F19F28E5D083007F2D31 /* GradientViewModifier.swift */,
 				383D979D28E630A700119835 /* GradientTextField.swift */,
 				383D979F28E68A9900119835 /* ImageRateView.swift */,
+				383D97A328E7475600119835 /* CapsuleButton.swift */,
+				383D97A528E777A400119835 /* GridItemListView.swift */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -320,7 +326,9 @@
 				389E271828E3E92700D9EF79 /* MainGalleryView.swift in Sources */,
 				38F6F19C28E542A1007F2D31 /* AddPlantView.swift in Sources */,
 				38F6F19728E53EBE007F2D31 /* Garden.xcdatamodeld in Sources */,
+				383D97A628E777A400119835 /* GridItemListView.swift in Sources */,
 				383D979E28E630A700119835 /* GradientTextField.swift in Sources */,
+				383D97A428E7475600119835 /* CapsuleButton.swift in Sources */,
 				383D97A028E68A9900119835 /* ImageRateView.swift in Sources */,
 				38F6F1A228E5D912007F2D31 /* Utils.swift in Sources */,
 				38F6F19328E4E866007F2D31 /* PlantItemView.swift in Sources */,

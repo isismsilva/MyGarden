@@ -41,13 +41,53 @@ struct PersistenceController {
     container.viewContext.automaticallyMergesChangesFromParent = true
   }
   
-  func saveData(_ plant: String, image: Data, waterRate: Int, lightRate: Int) {
+  func initSpeciesEntity() {
+    var species: [Species] = []
+    
     container.viewContext.performAndWait {
+      do {
+        species = try container.viewContext.fetch(Species.fetchRequest())
+      } catch {
+        print(error)
+      }
+    }
+
+    guard species.isEmpty else { return }
+    let speciesString: [String] = ["cactus", "orchids", "succulents", "peperomia", "aloe", "morus", "zamioculcas"]
+    for specie in speciesString {
+      PersistenceController.shared.saveSpeciesData(specie, color: specie)
+    }
+  }
+  
+  func savePlantData(_ name: String, _ image: Data, _ waterRate: Int, _ lightRate: Int, _ species: Species) {
+    container.viewContext.performAndWait {
+      
+      let speciesEntity = Species(context: container.viewContext)
+      speciesEntity.name = species.name
+      speciesEntity.color = species.color
+      
       let planEntity = Plant(context: container.viewContext)
-      planEntity.name = plant
+      planEntity.name = name
       planEntity.image = image
       planEntity.waterAmount = Int64(waterRate)
       planEntity.lightAmount = Int64(lightRate)
+      planEntity.species = speciesEntity
+      
+      do {
+        try container.viewContext.save()
+      } catch {
+        print("Unable to save")
+      }
+    }
+  }
+  
+  func saveSpeciesData(_ name: String, color: String) {
+    container.viewContext.performAndWait {
+      
+      let speciesEntity = Species(context: container.viewContext)
+      speciesEntity.name = name
+      speciesEntity.color = color
+      
       do {
         try container.viewContext.save()
       } catch {
