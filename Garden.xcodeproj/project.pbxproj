@@ -11,6 +11,14 @@
 		383D97A028E68A9900119835 /* ImageRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383D979F28E68A9900119835 /* ImageRateView.swift */; };
 		383D97A428E7475600119835 /* CapsuleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383D97A328E7475600119835 /* CapsuleButton.swift */; };
 		383D97A628E777A400119835 /* GridItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383D97A528E777A400119835 /* GridItemListView.swift */; };
+		386350D428E7EC21002C7B33 /* Species+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386350D028E7EC21002C7B33 /* Species+CoreDataClass.swift */; };
+		386350D528E7EC21002C7B33 /* Species+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386350D028E7EC21002C7B33 /* Species+CoreDataClass.swift */; };
+		386350D628E7EC21002C7B33 /* Species+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386350D128E7EC21002C7B33 /* Species+CoreDataProperties.swift */; };
+		386350D728E7EC21002C7B33 /* Species+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386350D128E7EC21002C7B33 /* Species+CoreDataProperties.swift */; };
+		386350D828E7EC21002C7B33 /* Plant+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386350D228E7EC21002C7B33 /* Plant+CoreDataClass.swift */; };
+		386350D928E7EC21002C7B33 /* Plant+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386350D228E7EC21002C7B33 /* Plant+CoreDataClass.swift */; };
+		386350DA28E7EC21002C7B33 /* Plant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386350D328E7EC21002C7B33 /* Plant+CoreDataProperties.swift */; };
+		386350DB28E7EC21002C7B33 /* Plant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386350D328E7EC21002C7B33 /* Plant+CoreDataProperties.swift */; };
 		387B70E028E60A5C000AC753 /* ImageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B70DF28E60A5C000AC753 /* ImageCoordinator.swift */; };
 		389E271128E3E92700D9EF79 /* GardenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E271028E3E92700D9EF79 /* GardenApp.swift */; };
 		389E271328E3E92700D9EF79 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E271228E3E92700D9EF79 /* Persistence.swift */; };
@@ -66,6 +74,10 @@
 		383D979F28E68A9900119835 /* ImageRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRateView.swift; sourceTree = "<group>"; };
 		383D97A328E7475600119835 /* CapsuleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleButton.swift; sourceTree = "<group>"; };
 		383D97A528E777A400119835 /* GridItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridItemListView.swift; sourceTree = "<group>"; };
+		386350D028E7EC21002C7B33 /* Species+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Species+CoreDataClass.swift"; sourceTree = "<group>"; };
+		386350D128E7EC21002C7B33 /* Species+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Species+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		386350D228E7EC21002C7B33 /* Plant+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plant+CoreDataClass.swift"; sourceTree = "<group>"; };
+		386350D328E7EC21002C7B33 /* Plant+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plant+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		387B70DF28E60A5C000AC753 /* ImageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCoordinator.swift; sourceTree = "<group>"; };
 		389E270D28E3E92700D9EF79 /* Garden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Garden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		389E271028E3E92700D9EF79 /* GardenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenApp.swift; sourceTree = "<group>"; };
@@ -110,6 +122,10 @@
 		389E270428E3E92700D9EF79 = {
 			isa = PBXGroup;
 			children = (
+				386350D028E7EC21002C7B33 /* Species+CoreDataClass.swift */,
+				386350D128E7EC21002C7B33 /* Species+CoreDataProperties.swift */,
+				386350D228E7EC21002C7B33 /* Plant+CoreDataClass.swift */,
+				386350D328E7EC21002C7B33 /* Plant+CoreDataProperties.swift */,
 				389E270F28E3E92700D9EF79 /* Garden */,
 				389E272928E3EA0000D9EF79 /* GardenWatch Watch App */,
 				389E270E28E3E92700D9EF79 /* Products */,
@@ -330,11 +346,15 @@
 				383D979E28E630A700119835 /* GradientTextField.swift in Sources */,
 				383D97A428E7475600119835 /* CapsuleButton.swift in Sources */,
 				383D97A028E68A9900119835 /* ImageRateView.swift in Sources */,
+				386350D628E7EC21002C7B33 /* Species+CoreDataProperties.swift in Sources */,
 				38F6F1A228E5D912007F2D31 /* Utils.swift in Sources */,
 				38F6F19328E4E866007F2D31 /* PlantItemView.swift in Sources */,
 				38F6F19528E4F17A007F2D31 /* ColorStyle.swift in Sources */,
 				38F6F1A028E5D083007F2D31 /* GradientViewModifier.swift in Sources */,
+				386350DA28E7EC21002C7B33 /* Plant+CoreDataProperties.swift in Sources */,
+				386350D428E7EC21002C7B33 /* Species+CoreDataClass.swift in Sources */,
 				389E271328E3E92700D9EF79 /* Persistence.swift in Sources */,
+				386350D828E7EC21002C7B33 /* Plant+CoreDataClass.swift in Sources */,
 				389E273828E3EB0F00D9EF79 /* WatchConnectivityManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,11 +364,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				389E273628E3EADA00D9EF79 /* Persistence.swift in Sources */,
+				386350D728E7EC21002C7B33 /* Species+CoreDataProperties.swift in Sources */,
 				389E272D28E3EA0000D9EF79 /* ContentView.swift in Sources */,
+				386350DB28E7EC21002C7B33 /* Plant+CoreDataProperties.swift in Sources */,
+				386350D928E7EC21002C7B33 /* Plant+CoreDataClass.swift in Sources */,
 				389E273928E3EB0F00D9EF79 /* WatchConnectivityManager.swift in Sources */,
 				38F6F1A328E5D912007F2D31 /* Utils.swift in Sources */,
 				38F6F19628E4F17A007F2D31 /* ColorStyle.swift in Sources */,
 				38F6F19828E53EBE007F2D31 /* Garden.xcdatamodeld in Sources */,
+				386350D528E7EC21002C7B33 /* Species+CoreDataClass.swift in Sources */,
 				389E272B28E3EA0000D9EF79 /* GardenWatchApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

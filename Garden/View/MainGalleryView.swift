@@ -22,7 +22,9 @@ struct MainGalleryView: View {
           ForEach(Array(plants.enumerated()), id: \.offset) { (index, item) in
             let color = Color(.white)
             NavigationLink {
-              PlantDetailsView(plant: item, color: color)
+              if !item.specieArray.isEmpty {
+                PlantDetailsView(plant: item, color: .pink, specieName: item.specieArray.first?.name ?? "")
+              }
             } label: {
               PlantItemView(color: color, name: item.name ?? "", image: item.image ?? Data()).padding(2)
             }

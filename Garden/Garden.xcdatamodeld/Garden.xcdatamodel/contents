@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21279" systemVersion="21G115" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
-    <entity name="Plant" representedClassName="Plant" parentEntity="Species" syncable="YES" codeGenerationType="class">
+    <entity name="Plant" representedClassName="Plant" syncable="YES">
         <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="lightAmount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="purchaseDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="species" optional="YES" attributeType="String"/>
         <attribute name="waterAmount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="specie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Species" inverseName="plant" inverseEntity="Species"/>
+        <relationship name="species" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Species" inverseName="plant" inverseEntity="Species"/>
     </entity>
-    <entity name="Species" representedClassName="Species" isAbstract="YES" syncable="YES" codeGenerationType="class">
+    <entity name="Species" representedClassName="Species" syncable="YES">
         <attribute name="color" optional="YES" attributeType="String"/>
-        <attribute name="speciesName" optional="YES" attributeType="String"/>
-        <relationship name="plant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Plant" inverseName="specie" inverseEntity="Plant"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="plant" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Plant" inverseName="species" inverseEntity="Plant"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
 </model>

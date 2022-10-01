@@ -38,7 +38,7 @@ struct PersistenceController {
         fatalError("Unresolved error \(error), \(error.userInfo)")
       }
     })
-    container.viewContext.automaticallyMergesChangesFromParent = true
+    container.viewContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
   }
   
   func initSpeciesEntity() {
@@ -63,7 +63,7 @@ struct PersistenceController {
     container.viewContext.performAndWait {
       
       let speciesEntity = Species(context: container.viewContext)
-      speciesEntity.speciesName = species.speciesName
+      speciesEntity.name = species.name
       speciesEntity.color = species.color
       
       let planEntity = Plant(context: container.viewContext)
@@ -71,7 +71,7 @@ struct PersistenceController {
       planEntity.image = image
       planEntity.waterAmount = Int64(waterRate)
       planEntity.lightAmount = Int64(lightRate)
-      planEntity.specie = speciesEntity
+      speciesEntity.addToPlant(planEntity)
       
       do {
         try container.viewContext.save()
@@ -85,7 +85,7 @@ struct PersistenceController {
     container.viewContext.performAndWait {
       
       let speciesEntity = Species(context: container.viewContext)
-      speciesEntity.speciesName = name
+      speciesEntity.name = name
       speciesEntity.color = color
       
       do {
