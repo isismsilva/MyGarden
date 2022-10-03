@@ -1,24 +1,19 @@
 //
-//  CapsuleButton.swift
+//  CapsuleText.swift
 //  Garden
 //
-//  Created by Isis Silva on 30/09/22.
+//  Created by Isis Silva on 02/10/22.
 //
 
 import SwiftUI
 
-struct CapsuleButton: View {
-  
+struct CapsuleText: View {
   let text: String
   let textSize: CGFloat
   let horizontalPadding: CGFloat
   let color: Color
-  let action: (() -> Void)
   
-  var body: some View {
-    Button {
-      action()
-    } label: {
+    var body: some View {
       Text(text)
         .padding()
         .font(.system(size: textSize, weight: .bold, design: .rounded))
@@ -27,11 +22,10 @@ struct CapsuleButton: View {
         .background(color)
         .clipShape(Capsule())
     }
-  }
 }
 
-struct CapsuleButton_Previews: PreviewProvider {
-  static var previews: some View {
-    CapsuleButton(text: "Lula", textSize: 13, horizontalPadding: 48, color: .pink, action: {})
-  }
+struct CapsuleText_Previews: PreviewProvider {
+    static var previews: some View {
+      CapsuleText(text: "", textSize: 12, horizontalPadding: 12, color: .pink)
+    }
 }

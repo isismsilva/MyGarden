@@ -23,12 +23,13 @@ struct MainGalleryView: View {
             let color = Color.init(hex: plant.plantSpecies?.color ?? " ")
             NavigationLink {
              
-                PlantDetailsView(plant: plant)
+              PlantDetailsView(plant: plant)
               
             } label: {
               PlantItemView(color: color ?? .pink, image: plant.image ?? Data())
                 .padding(2)
             }
+            
           }
         }
       }

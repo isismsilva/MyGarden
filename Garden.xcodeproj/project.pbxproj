@@ -21,6 +21,10 @@
 		386350DB28E7EC21002C7B33 /* Plant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386350D328E7EC21002C7B33 /* Plant+CoreDataProperties.swift */; };
 		386350DD28E8D29C002C7B33 /* PlantColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386350DC28E8D29C002C7B33 /* PlantColors.swift */; };
 		386350DE28E8D29C002C7B33 /* PlantColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386350DC28E8D29C002C7B33 /* PlantColors.swift */; };
+		386350E028E8F9DE002C7B33 /* DismissHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386350DF28E8F9DE002C7B33 /* DismissHeaderView.swift */; };
+		386350E228E90094002C7B33 /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386350E128E90094002C7B33 /* CircularImageView.swift */; };
+		386350E428E90525002C7B33 /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386350E328E90525002C7B33 /* CustomDatePicker.swift */; };
+		386350E628EA4CD4002C7B33 /* CapsuleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386350E528EA4CD4002C7B33 /* CapsuleText.swift */; };
 		387B70E028E60A5C000AC753 /* ImageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B70DF28E60A5C000AC753 /* ImageCoordinator.swift */; };
 		389E271128E3E92700D9EF79 /* GardenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E271028E3E92700D9EF79 /* GardenApp.swift */; };
 		389E271328E3E92700D9EF79 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E271228E3E92700D9EF79 /* Persistence.swift */; };
@@ -81,6 +85,10 @@
 		386350D228E7EC21002C7B33 /* Plant+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plant+CoreDataClass.swift"; sourceTree = "<group>"; };
 		386350D328E7EC21002C7B33 /* Plant+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plant+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		386350DC28E8D29C002C7B33 /* PlantColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantColors.swift; sourceTree = "<group>"; };
+		386350DF28E8F9DE002C7B33 /* DismissHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissHeaderView.swift; sourceTree = "<group>"; };
+		386350E128E90094002C7B33 /* CircularImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularImageView.swift; sourceTree = "<group>"; };
+		386350E328E90525002C7B33 /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
+		386350E528EA4CD4002C7B33 /* CapsuleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleText.swift; sourceTree = "<group>"; };
 		387B70DF28E60A5C000AC753 /* ImageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCoordinator.swift; sourceTree = "<group>"; };
 		389E270D28E3E92700D9EF79 /* Garden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Garden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		389E271028E3E92700D9EF79 /* GardenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenApp.swift; sourceTree = "<group>"; };
@@ -226,6 +234,10 @@
 				383D979F28E68A9900119835 /* ImageRateView.swift */,
 				383D97A328E7475600119835 /* CapsuleButton.swift */,
 				383D97A528E777A400119835 /* GridItemListView.swift */,
+				386350DF28E8F9DE002C7B33 /* DismissHeaderView.swift */,
+				386350E128E90094002C7B33 /* CircularImageView.swift */,
+				386350E328E90525002C7B33 /* CustomDatePicker.swift */,
+				386350E528EA4CD4002C7B33 /* CapsuleText.swift */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -348,16 +360,20 @@
 				38F6F19728E53EBE007F2D31 /* Garden.xcdatamodeld in Sources */,
 				383D97A628E777A400119835 /* GridItemListView.swift in Sources */,
 				383D979E28E630A700119835 /* GradientTextField.swift in Sources */,
+				386350E428E90525002C7B33 /* CustomDatePicker.swift in Sources */,
 				383D97A428E7475600119835 /* CapsuleButton.swift in Sources */,
 				383D97A028E68A9900119835 /* ImageRateView.swift in Sources */,
 				386350D628E7EC21002C7B33 /* Species+CoreDataProperties.swift in Sources */,
 				38F6F1A228E5D912007F2D31 /* Utils.swift in Sources */,
+				386350E628EA4CD4002C7B33 /* CapsuleText.swift in Sources */,
 				38F6F19328E4E866007F2D31 /* PlantItemView.swift in Sources */,
 				38F6F19528E4F17A007F2D31 /* ColorStyle.swift in Sources */,
 				38F6F1A028E5D083007F2D31 /* GradientViewModifier.swift in Sources */,
+				386350E228E90094002C7B33 /* CircularImageView.swift in Sources */,
 				386350DA28E7EC21002C7B33 /* Plant+CoreDataProperties.swift in Sources */,
 				386350DD28E8D29C002C7B33 /* PlantColors.swift in Sources */,
 				386350D428E7EC21002C7B33 /* Species+CoreDataClass.swift in Sources */,
+				386350E028E8F9DE002C7B33 /* DismissHeaderView.swift in Sources */,
 				389E271328E3E92700D9EF79 /* Persistence.swift in Sources */,
 				386350D828E7EC21002C7B33 /* Plant+CoreDataClass.swift in Sources */,
 				389E273828E3EB0F00D9EF79 /* WatchConnectivityManager.swift in Sources */,
