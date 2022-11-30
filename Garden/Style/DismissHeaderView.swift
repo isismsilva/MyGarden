@@ -23,9 +23,8 @@ struct DismissHeaderView: View {
         action()
       } label: {
         Image(systemName: "xmark")
-          .renderingMode(.original)
-          .font(.system(size: 24))
           .foregroundColor(Color("background"))
+          .font(.system(size: 24))
           .padding(.horizontal, 24)
       }
     }

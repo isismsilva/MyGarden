@@ -9,11 +9,10 @@ import Foundation
 import WatchConnectivity
 
 class WatchConnectivityManager: NSObject, ObservableObject {
-  
   static let shared = WatchConnectivityManager()
-  @Published var notificationMessage: NotificationMessage? = nil
-  
   let session = WCSession.default
+  
+  @Published var notificationMessage: NotificationMessage? = nil
   
   override init() {
     super.init()
@@ -26,17 +25,16 @@ class WatchConnectivityManager: NSObject, ObservableObject {
   
   func send(_ message: String) {
     guard session.activationState == .activated else { return }
-#if os(iOS)
+    #if os(iOS)
     guard session.isWatchAppInstalled else { return }
-#else
+    #else
     guard session.isCompanionAppInstalled else { return }
-#endif
+    #endif
     
     session.sendMessage(["message" : message], replyHandler: nil) { error in
       print(error)
     }
   }
-  
 }
 
 extension WatchConnectivityManager: WCSessionDelegate {
@@ -49,12 +47,10 @@ extension WatchConnectivityManager: WCSessionDelegate {
     }
   }
   
-#if os(iOS)
+  #if os(iOS)
   func sessionDidBecomeInactive(_ session: WCSession) {}
-  
   func sessionDidDeactivate(_ session: WCSession) { session.activate() }
-#endif
-  
+  #endif
 }
 
 struct NotificationMessage: Identifiable {

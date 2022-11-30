@@ -61,7 +61,7 @@ struct AddPlantView: View {
           )
           .padding(.horizontal, 16)
           
-          GridItemListView(sequence: species) { specieState = $0 }
+          GridItemListView(title: "Family", sequence: species) { specieState = $0 }
             .padding(16)
 
         }

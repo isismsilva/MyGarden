@@ -32,6 +32,6 @@ struct CapsuleButton: View {
 
 struct CapsuleButton_Previews: PreviewProvider {
   static var previews: some View {
-    CapsuleButton(text: "Lula", textSize: 13, horizontalPadding: 48, color: .pink, action: {})
+    CapsuleButton(text: "Save", textSize: 13, horizontalPadding: 48, color: .pink, action: {})
   }
 }

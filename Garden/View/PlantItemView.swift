@@ -22,7 +22,7 @@ struct PlantItemView: View {
     .cornerRadius(8)
     .overlay {
       RoundedRectangle(cornerRadius: 8)
-        .stroke(color, lineWidth: 2)
+        .stroke(color, lineWidth: 4)
         .aspectRatio(1, contentMode: .fit)
     }
   }

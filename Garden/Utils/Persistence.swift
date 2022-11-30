@@ -60,7 +60,6 @@ struct PersistenceController {
   
   func savePlantData(_ name: String, _ image: Data, _ waterRate: Int, _ lightRate: Int, _ species: Species) {
     container.viewContext.performAndWait {
-      
       let speciesEntity = Species(context: container.viewContext)
       speciesEntity.name = species.name
       speciesEntity.color = species.color
@@ -80,9 +79,18 @@ struct PersistenceController {
     }
   }
   
+  func deletePlantData(_ plant: Plant) {
+    container.viewContext.performAndWait {
+      do {
+        try container.viewContext.delete(plant)
+      } catch {
+        print("Unable to save")
+      }
+    }
+  }
+  
   func saveSpeciesData(_ name: String, color: String) {
     container.viewContext.performAndWait {
-      
       let speciesEntity = Species(context: container.viewContext)
       speciesEntity.name = name
       speciesEntity.color = color

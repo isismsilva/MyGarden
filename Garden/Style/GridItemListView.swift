@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct GridItemListView: View {
+  // TODO: Let it reusble 
+  let title: String
   let sequence: FetchedResults<Species>
   let rows = Array(repeating: GridItem(.adaptive(minimum: 60), spacing: 60), count: 3)
   let action: ((Species) -> Void)
@@ -16,7 +18,7 @@ struct GridItemListView: View {
   var body: some View {
     
     VStack(alignment: .leading, spacing: 6) {
-      Text("Family")
+      Text(title)
         .foregroundColor(Color("background"))
         .font(.system(size: 20, weight: .bold, design: .rounded))
         .padding(.horizontal, 16)
@@ -26,7 +28,7 @@ struct GridItemListView: View {
           LazyHGrid(rows: rows, spacing: 8) {
             ForEach(sequence, id: \.self) { specie in
               let color = Color.init(hex: specie.color ?? "") ?? .pink
-              CapsuleButton(text: specie.name ?? "", textSize: 14, horizontalPadding: 6, color: selection == specie ? color.opacity(0.2) : color) {
+              CapsuleButton(text: specie.name ?? "", textSize: 14, horizontalPadding: 12, color: selection == specie ? color.opacity(0.2) : color) {
                 selection = specie
                 action(specie)
               }
@@ -41,8 +43,7 @@ struct GridItemListView: View {
 }
 
 //struct GridItemListView_Preview: PreviewProvider {
-//  @FetchRequest(sortDescriptors: []) var species: FetchedResults<Species>
 //  static var previews: some View {
-//    GridItemListView(sequence: species, action: {_ in })
+//    GridItemListView(title: "Family", sequence: [], action: {_ in })
 //  }
 //}

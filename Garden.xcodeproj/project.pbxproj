@@ -130,13 +130,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		389E270428E3E92700D9EF79 = {
+		388CC4882937AD8C00C0FCB4 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				386350D028E7EC21002C7B33 /* Species+CoreDataClass.swift */,
 				386350D128E7EC21002C7B33 /* Species+CoreDataProperties.swift */,
 				386350D228E7EC21002C7B33 /* Plant+CoreDataClass.swift */,
 				386350D328E7EC21002C7B33 /* Plant+CoreDataProperties.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		389E270428E3E92700D9EF79 = {
+			isa = PBXGroup;
+			children = (
+				388CC4882937AD8C00C0FCB4 /* CoreData */,
 				389E270F28E3E92700D9EF79 /* Garden */,
 				389E272928E3EA0000D9EF79 /* GardenWatch Watch App */,
 				389E270E28E3E92700D9EF79 /* Products */,
@@ -297,7 +305,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1400;
+				LastUpgradeCheck = 1410;
 				TargetAttributes = {
 					389E270C28E3E92700D9EF79 = {
 						CreatedOnToolsVersion = 14.0.1;
@@ -443,6 +451,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -501,6 +510,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -525,8 +535,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Garden/Garden.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Garden/Preview Content\"";
 				DEVELOPMENT_TEAM = 5HMJW6N276;
 				ENABLE_HARDENED_RUNTIME = NO;
@@ -567,8 +580,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Garden/Garden.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Garden/Preview Content\"";
 				DEVELOPMENT_TEAM = 5HMJW6N276;
 				ENABLE_HARDENED_RUNTIME = NO;
